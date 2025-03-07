@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote for This Week's Samples - Trader Joe's</title>
+    <link rel="stylesheet" href="styles.css">
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <h3 id="modalMessage">Thank you for voting!</h3>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <style>
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            width: 100%;
+            padding: 20px;
+        }
+        .vote-section, .chart-section {
+            width: 45%;
+            text-align: left;
+        }
+        h2 {
+            color: #A40000;
+            text-align: center;
+        }
+        .vote-form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .vote-form label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .vote-form select {
+            padding: 10px;
+            font-size: 14px;
+            border: 2px solid #A40000;
+            border-radius: 8px;
+            width: 80%;
+            margin-bottom:10px
+        }
+        .vote-form button {
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            background-color: #D92323;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            width: 80%; 
+            transition: background-color 0.3s;
+            margin-bottom:20px
+        }
+        .vote-form button:hover {
+            background-color: #A40000;
+        }
+        .chart-section {
+            padding-top: 10px;
+            padding-right: 20px;
+            width: 50%;  
+            height: 240px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chart-section canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="kiosk-frame">
+        <div class="kiosk-screen">
+            <div class="screen">
+                <h2>Vote for this week's favorite product</h2>
+                <div class="content">
+                    <div class="vote-section">
+                        <p>Pick your favorite sample from this week's selections!</p>
+                        <form class="vote-form">
+                            <label for="sample-vote">Select your favorite sample:</label>
+                            <select id="sample-vote">
+                                <option value="" disabled selected>&lt;-- Select One --&gt;</option>
+                                <option value="chili-lime-chips">Chili Lime Chips</option>
+                                <option value="dark-chocolate-almonds">Dark Chocolate Almonds</option>
+                                <option value="peanut-butter-puffs">Peanut Butter Puffs</option>
+                            </select>                            
+                            <button type="button" onclick="submitVote()">Submit  🗳️</button>
+                        </form>
+                    </div>
+                    
+                    <div class="chart-section">
+                        <canvas id="voteChart"></canvas>
+                    </div>
+                </div>
+                <button class="back-button" onclick="window.history.back()">⬅ Back</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let votes = { 
+            "chili-lime-chips": 8, 
+            "dark-chocolate-almonds": 6, 
+            "peanut-butter-puffs": 4 
+        };
+
+        function submitVote() {
+            let selectElement = document.getElementById("sample-vote");
+            let selectedSample = selectElement.value;
+
+            if (!selectedSample) {
+                showModal("Please select an option before voting!");
+                return;
+            }
+
+            votes[selectedSample] += 1;
+            updateChart();
+            showModal(`Thank you for voting for ${selectedSample.replace(/-/g, ' ')}!`);
+        }
+
+        /* Function to Show the Modal */
+        function showModal(message) {
+            document.getElementById("modalMessage").innerText = message;
+            document.getElementById("modalOverlay").style.display = "flex"; // Show modal
+        }
+
+        /* Function to Close the Modal */
+        function closeModal() {
+            document.getElementById("modalOverlay").style.display = "none"; // Hide modal
+        }
+
+
+        function updateChart() {
+            voteChart.data.datasets[0].data = Object.values(votes);
+            voteChart.update();
+        }
+
+        let ctx = document.getElementById("voteChart").getContext("2d");
+
+        let voteChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: Object.keys(votes).map(k => k.replace(/-/g, ' ')),
+                datasets: [{
+                    label: "Votes",
+                    data: Object.values(votes),
+                    backgroundColor: ["#D92323", "#A40000", "#FF5733", "#C70039"],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

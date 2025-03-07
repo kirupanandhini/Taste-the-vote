@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trader Joe's Weekly Sample Results</title>
+    <link rel="stylesheet" href="styles.css">
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <h3 id="modalMessage">Thank you for voting!</h3>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+    <style>
+        h2 {
+            color: #A40000;
+        }
+        .week-buttons button {
+            margin: 5px;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            background-color: #D92323; /* Normal button color */
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .week-buttons button:hover {
+            background-color: #A40000;
+        }
+
+        /* Darker background for the active button */
+        .week-buttons .active-button {
+            background-color: #A40000; /* Darker red */
+        }
+
+        .result-box {
+            display: none;
+            padding: 20px;
+            border: 3px solid #A40000;
+            margin-top: 10px;
+            background-color: #ffe7c0f9;;
+            border-radius: 10px;
+        }
+        .product-link {
+            color: #557b19;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .product-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+    </style>
+    <script>
+        function showResults(weekId) {
+            var results = document.getElementsByClassName("result-box");
+            var buttons = document.querySelectorAll(".week-buttons button");
+
+            // Hide all result boxes
+            for (var i = 0; i < results.length; i++) {
+                results[i].style.display = "none";
+            }
+
+            // Remove 'active' class from all buttons
+            buttons.forEach(button => {
+                button.classList.remove("active-button");
+            });
+
+            // Show the selected result box
+            var selectedWeek = document.getElementById(weekId);
+            if (selectedWeek) {
+                selectedWeek.style.display = "block";
+            }
+
+            // Find the clicked button and apply the active style
+            var clickedButton = document.querySelector(`[onclick="showResults('${weekId}')"]`);
+            if (clickedButton) {
+                clickedButton.classList.add("active-button");
+            }
+        }
+
+        window.onload = function () {
+            showResults('week_feb_12'); 
+        };
+    </script>
+</head>
+<body>
+    <div class="kiosk-frame">
+        <div class="kiosk-screen">
+            <div class="screen">
+                <h2>Past weeks’ results</h2>
+                
+                <div class="week-buttons">
+                    <button onclick="showResults('week_feb_12')">Feb 12 - Feb 18</button>
+                    <button onclick="showResults('week_feb_5')">Feb 5 - Feb 11</button>
+                    <button onclick="showResults('week_jan_29')">Jan 29 - Feb 4</button>
+                    <button onclick="window.location.href='past-weeks-results.html'">More Previous Weeks</button>
+                </div>
+                
+                <div id="week_feb_12" class="result-box">
+                    <p>
+                        <img class="product-img" src="imgs/boba-mochi.jpg" alt="Boba Mochi">🥇 
+                        <span class="product-link" onclick="window.location.href='boba-mochi.html'">Boba Mochi</span> - 42% votes
+                    </p>
+                    <p><img class="product-img" src="imgs/chips.jpg" alt="Chili Lime Chips">🥈 <span class="product-link" onclick="showProductDetails('Chili Lime Chips')">Chili Lime Chips</span> - 30% votes</p>
+                    <p><img class="product-img" src="imgs/matcha-cookies.jpg" alt="Matcha Cookies">🥉 <span class="product-link" onclick="showProductDetails('Matcha Cookies')">Matcha Cookies</span> - 28% votes</p>
+                </div>
+
+
+                <div id="week_feb_5" class="result-box">
+                    <div>
+                        <img class="product-img" src="imgs/peanut-butter-cups.webp" alt="Peanut Butter Cups">
+                        <span class="product-link">🥇 Peanut Butter Cups</span> - 53% votes
+                    </div>
+                    <div>
+                        <img class="product-img" src="imgs/corn-chip-dippers.jpg" alt="Corn Chip Dippers">
+                        <span class="product-link">🥈 Corn Chip Dippers</span> - 30% votes
+                    </div>
+                    <div>
+                        <img class="product-img" src="imgs/cashews.jpeg" alt="Thai Lime and Chili Cashews">
+                        <span class="product-link">🥉 Thai Lime and Chili Cashews</span> - 27% votes
+                    </div>
+                </div>        
+                <button class="back-button" onclick="window.history.back()">⬅ Back</button>
+            </div>
+    </div>        
+</div>
+</body>
+</html>

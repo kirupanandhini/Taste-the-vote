@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Picks - Trader Joe's</title>
+    <link rel="stylesheet" href="styles.css">
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <h3 id="modalMessage">Thank you for voting!</h3>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+    <style>
+        h2 {
+            color: #A40000;
+        }
+        .employee {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #FFF9C4;
+            border: 2px solid #A40000;
+            border-radius: 10px;
+            margin: 15px 0;
+            padding: 15px;
+            text-align: left;
+        }
+        .employee img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .employee-info {
+            flex-grow: 1;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            background-color: #D92323;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .back-button:hover {
+            background-color: #A40000;
+        }
+    </style>
+</head>
+<body>
+    <div class="kiosk-frame">
+        <div class="kiosk-screen">
+            <div class="screen">
+            <h2>Employees' picks</h2>
+            
+            <div class="employee">
+                <img src="imgs/emily.png" alt="Emily">
+                <div class="employee-info">
+                    <h3>Emily - Store Manager</h3>
+                    <p><strong>Pick:</strong> 
+                        <a href="boba-mochi.html" style="color: #557b19; text-decoration: underline;">
+                            Boba Mochi
+                        </a>
+                    </p>
+                    <p>"I love how chewy and sweet these are! They remind me of my favorite bubble tea."</p>
+                </div>
+            </div>
+
+            <div class="employee">
+                <img src="imgs/jake.png" alt="Jake">
+                <div class="employee-info">
+                    <h3>Jake - Cashier</h3>
+                    <p><strong>Pick:</strong> 
+                        <a href="chili-lime-chips.html" style="color: #557b19; text-decoration: underline;">
+                            Chili Lime Chips
+                        </a>
+                    </p>
+                    <p>"The perfect balance of tangy and spicy! These chips are my go-to snack."</p>
+                </div>
+            </div>
+
+            <div class="employee">
+                <img src="imgs/sophia.png" alt="Sophia">
+                <div class="employee-info">
+                    <h3>Sophia - Stock Associate</h3>
+                    <p><strong>Pick:</strong> 
+                        <a href="dark-chocolate-almonds.html" style="color: #557b19; text-decoration: underline;">
+                            Dark Chocolate Almonds
+                        </a>
+                    </p>
+                    <p>"Rich, crunchy, and just the right amount of sweetness. A must-have!"</p>
+                </div>
+            </div>
+
+            <div class="employee">
+                <img src="imgs/michael.png" alt="Michael">
+                <div class="employee-info">
+                    <h3>Michael - Assistant Manager</h3>
+                    <p><strong>Pick:</strong> 
+                        <a href="peanut-butter-puffs.html" style="color: #557b19; text-decoration: underline;">
+                            Peanut Butter Puffs
+                        </a>
+                    </p>
+                    <p>"A childhood favorite with an amazing peanut flavor. I can’t stop eating them!"</p>
+                </div>
+            </div>
+
+            <button class="back-button" onclick="window.history.back()">⬅ Back</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

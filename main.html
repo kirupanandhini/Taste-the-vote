@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiosk Mockup</title>
+    <link rel="stylesheet" href="styles.css">
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <h3 id="modalMessage">Thank you for voting!</h3>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+    <style>
+        h2 {
+            color: #A40000;
+            font-size: 28px;
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 35px;
+        }
+        .menu button {
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            background-color: #D92323;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+            width: 80%;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .menu button:hover {
+            background-color: #A40000;
+            transform: scale(1.05);
+        }
+        .language-selector {
+            margin-top: 60px;
+        }
+        .language-selector label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .language-selector select {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #A40000;
+            border-radius: 8px;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kiosk-frame">
+        <div class="kiosk-screen">
+            <div class="screen">
+                <h2 id="title">Trader Joe's Weekly Sample Results</h2>
+                
+                <div class="menu">
+                    <button onclick="window.location.href='vote-this-week.html'" id="vote-this-week">Vote for this week's favorite product 🗳️</button>
+                    <button onclick="window.location.href='vote-next-week.html'" id="vote-next-week">Vote for next week's samples 🔮</button>
+                    <button onclick="window.location.href='past-weeks-results.html'" id="past-results">Past weeks’ results 📊</button>
+                    <button onclick="window.location.href='employee-pick.html'" id="employee-pick">Employees' picks ⭐</button>
+                </div>
+
+                <div class="language-selector">
+                    <label for="language">🌍 Select Language:</label>
+                    <select id="language" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                title: "Trader Joe's Weekly Sample Results",
+                "vote-this-week": "Vote for your favorite product from this week 🗳️",
+                "vote-next-week": "Vote for what you want to see next week 🔮",
+                "past-results": "Past weeks’ results 📊",
+                "employee-pick": "Employee pick ⭐"
+            },
+            es: {
+                title: "Resultados Semanales de Muestras de Trader Joe's",
+                "vote-this-week": "Vota por tu producto favorito de esta semana 🗳️",
+                "vote-next-week": "Vota por lo que quieres ver la próxima semana 🔮",
+                "past-results": "Resultados de semanas anteriores 📊",
+                "employee-pick": "Elección del empleado ⭐"
+            },
+            fr: {
+                title: "Résultats Hebdomadaires des Échantillons de Trader Joe's",
+                "vote-this-week": "Votez pour votre produit préféré de cette semaine 🗳️",
+                "vote-next-week": "Votez pour ce que vous voulez voir la semaine prochaine 🔮",
+                "past-results": "Résultats des semaines précédentes 📊",
+                "employee-pick": "Choix de l’employé ⭐"
+            },
+            de: {
+                title: "Wöchentliche Probenergebnisse von Trader Joe's",
+                "vote-this-week": "Stimme für dein Lieblingsprodukt dieser Woche ab 🗳️",
+                "vote-next-week": "Stimme ab, was du nächste Woche sehen möchtest 🔮",
+                "past-results": "Ergebnisse der vergangenen Wochen 📊",
+                "employee-pick": "Mitarbeiterwahl ⭐"
+            },
+            zh: {
+                title: "Trader Joe's 每周样品结果",
+                "vote-this-week": "投票选出你本周最喜欢的产品 🗳️",
+                "vote-next-week": "投票选出你下周想看到的产品 🔮",
+                "past-results": "过去几周的结果 📊",
+                "employee-pick": "员工精选 ⭐"
+            }
+        };
+
+        function changeLanguage(lang) {
+            if (translations[lang]) {
+                document.getElementById("title").innerText = translations[lang].title;
+                document.getElementById("vote-this-week").innerText = translations[lang]["vote-this-week"];
+                document.getElementById("vote-next-week").innerText = translations[lang]["vote-next-week"];
+                document.getElementById("past-results").innerText = translations[lang]["past-results"];
+                document.getElementById("employee-pick").innerText = translations[lang]["employee-pick"];
+            }
+        }
+    </script>
+</body>
+</html>
