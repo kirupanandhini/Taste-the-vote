@@ -3,14 +3,14 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #fffdfd;
+    background-color: rgb(200, 197, 197);
     margin: 0;
 }
 
 .kiosk-frame {
     width: 900px;
     height: 600px;
-    background-color: rgb(210, 207, 207);
+    background-color: white;
     border-radius: 15px;
     display: flex;
     justify-content: center;
