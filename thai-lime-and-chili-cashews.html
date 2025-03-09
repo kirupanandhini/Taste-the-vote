@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <h3 id="modalMessage">Thank you for voting!</h3>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <style>
+        .product-container {
+            display: flex;
+            align-items: center;
+            gap: 40px; 
+            width: 100%;
+            justify-content: flex-start;
+        }
+        .product-img {
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+            margin-top:-70px
+        }
+        .details {
+            text-align: left;
+            font-size: 20px;
+            width: 60%; 
+        }
+        .details h3 {
+            color: #A40000;
+        }
+        .ingredients-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .ingredients-table th, .ingredients-table td {
+            border: 1px solid #A40000;
+            padding: 8px;
+            text-align: left;
+        }
+        .ingredients-table th {
+            background-color: #D92323;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="kiosk-frame">
+        <div class="kiosk-screen">
+            <div class="screen">
+                <h1>Thai Lime and Chili Cashews</h1>
+                <p>Inspired by the iconic Tom Yum Soup, these cashews feature a blend of Thai lime, chili, and lemongrass flavors!</p>
+                        
+                <div class="product-container">
+                    <img class="product-img" src="imgs/cashews.jpeg" alt="Cashews">
+                    <div class="details">
+                        <h3>Ingredients</h3>
+                        <table class="ingredients-table">
+                            <tr>
+                                <th>Ingredient</th>
+                                <th>Details</th>
+                            </tr>
+                            <tr>
+                                <td>Cashews</td>
+                                <td>The main ingredient in the snack</td>
+                            </tr>
+                            <tr>
+                                <td>Thai Lime Leaves</td>
+                                <td>The cashews are covered in dried or fried makrut lime leaves </td>
+                            </tr>
+                            <tr>
+                                <td>Chili</td>
+                                <td>The cashews are spicy and have a lot of chili</td>
+                            </tr>
+                            <tr>
+                                <td>Rich Bran Oil</td>
+                                <td>The cashews are coated in their own oils when toasted</td>
+                            </tr>
+                            <tr>
+                                <td>Tom Yum Seasoning</td>
+                                <td>Contains maltodextrin, sugar, salt, yeast extract powder, citric acid, garlic powder, lemongrass, silicon dioxide, chili powder, white pepper, natural lemon flavor, and paprika oleoresin</td>
+                            </tr>
+                        </table>
+                        
+                        <h3>Nutritional Info</h3>
+                        <p><strong>Calories:</strong> 180 per serving | <strong>Fat:</strong> High | <strong>Gluten-Free:</strong> Yes</p>
+                        
+                        <button class="back-button" onclick="window.history.back()">⬅ Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>

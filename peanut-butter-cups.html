@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <h3 id="modalMessage">Thank you for voting!</h3>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <style>
+        .product-container {
+            display: flex;
+            align-items: center;
+            gap: 40px; 
+            width: 100%;
+            justify-content: flex-start;
+        }
+        .product-img {
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+            margin-top:-70px
+        }
+        .details {
+            text-align: left;
+            font-size: 20px;
+            width: 60%; 
+        }
+        .details h3 {
+            color: #A40000;
+        }
+        .ingredients-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .ingredients-table th, .ingredients-table td {
+            border: 1px solid #A40000;
+            padding: 8px;
+            text-align: left;
+        }
+        .ingredients-table th {
+            background-color: #D92323;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="kiosk-frame">
+        <div class="kiosk-screen">
+            <div class="screen">
+                <h1>Peanut Butter Cups</h1>
+                <p>Peanut Butter Cups are made with peanut butter from slow-roasted Virginia peanuts and rich dark chocolate from high-quality cacao beans!</p>
+                        
+                <div class="product-container">
+                    <img class="product-img" src="imgs/peanut-butter-cups.webp" alt="Peanut Butter Cups">
+                    <div class="details">
+                        <h3>Ingredients</h3>
+                        <table class="ingredients-table">
+                            <tr>
+                                <th>Ingredient</th>
+                                <th>Details</th>
+                            </tr>
+                            <tr>
+                                <td>Peanut Butter</td>
+                                <td>Made from slow-roasted, ground Virginia peanuts</td>
+                            </tr>
+                            <tr>
+                                <td>Milk Chocolate</td>
+                                <td>Contains cocoa butter, chocolate liquor, sugar, milkfat, soy lecithin, and natural flavor</td>
+                            </tr>
+                            <tr>
+                                <td>Palm Kernel Oil</td>
+                                <td>Used in the chocolate coating</td>
+                            </tr>
+                            <tr>
+                                <td>Lactose</td>
+                                <td>Found in the milk chocolate</td>
+                            </tr>
+                            <tr>
+                                <td>Salt</td>
+                                <td>A flavoring ingredient</td>
+                            </tr>
+                        </table>
+                        
+                        <h3>Nutritional Info</h3>
+                        <p><strong>Calories:</strong> 180 per serving | <strong>Fat:</strong> High | <strong>Gluten-Free:</strong> No</p>
+                        
+                        <button class="back-button" onclick="window.history.back()">⬅ Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>

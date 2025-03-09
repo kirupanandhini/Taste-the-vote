@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <h3 id="modalMessage">Thank you for voting!</h3>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <style>
+        .product-container {
+            display: flex;
+            align-items: center;
+            gap: 40px; 
+            width: 100%;
+            justify-content: flex-start;
+        }
+        .product-img {
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+            margin-top:-70px
+        }
+        .details {
+            text-align: left;
+            font-size: 20px;
+            width: 60%; 
+        }
+        .details h3 {
+            color: #A40000;
+        }
+        .ingredients-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .ingredients-table th, .ingredients-table td {
+            border: 1px solid #A40000;
+            padding: 8px;
+            text-align: left;
+        }
+        .ingredients-table th {
+            background-color: #D92323;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="kiosk-frame">
+        <div class="kiosk-screen">
+            <div class="screen">
+                <h1>Matcha Cookies</h1>
+                <p> Matcha cookies are soft, chewy cookies with a distinct, vibrant green color, infused with a noticeable matcha flavor, offering a subtle earthy taste and a light caffeine kick!</p>
+                        
+                <div class="product-container">
+                    <img class="product-img" src="imgs/matcha-cookies.jpg" alt="Matcha Cookies">
+                    <div class="details">
+                        <h3>Ingredients</h3>
+                        <table class="ingredients-table">
+                            <tr>
+                                <th>Ingredient</th>
+                                <th>Details</th>
+                            </tr>
+                            <tr>
+                                <td>Brown Sugar</td>
+                                <td>Adds moisture and flavor depth</td>
+                            </tr>
+                            <tr>
+                                <td>White Sugar</td>
+                                <td>Helps maintain the cookies' green color</td>
+                            </tr>
+                            <tr>
+                                <td>Matcha Green Tea Powder</td>
+                                <td>Made from finely ground young green tea leaves</td>
+                            </tr>
+                            <tr>
+                                <td>Melted Coconut Oil</td>
+                                <td>For richness</td>
+                            </tr>
+                            <tr>
+                                <td>Natural Flavors</td>
+                                <td>Enhances the cookies' taste experience</td>
+                            </tr>
+                        </table>
+                        
+                        <h3>Nutritional Info</h3>
+                        <p><strong>Calories:</strong> 160 per serving | <strong>Fat:</strong> Medium | <strong>Gluten-Free:</strong> No</p>
+                        
+                        <button class="back-button" onclick="window.history.back()">⬅ Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>

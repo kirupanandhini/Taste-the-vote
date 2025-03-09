@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <h3 id="modalMessage">Thank you for voting!</h3>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <style>
+        .product-container {
+            display: flex;
+            align-items: center;
+            gap: 40px; 
+            width: 100%;
+            justify-content: flex-start;
+        }
+        .product-img {
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+            margin-top:-70px
+        }
+        .details {
+            text-align: left;
+            font-size: 20px;
+            width: 60%; 
+        }
+        .details h3 {
+            color: #A40000;
+        }
+        .ingredients-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .ingredients-table th, .ingredients-table td {
+            border: 1px solid #A40000;
+            padding: 8px;
+            text-align: left;
+        }
+        .ingredients-table th {
+            background-color: #D92323;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="kiosk-frame">
+        <div class="kiosk-screen">
+            <div class="screen">
+                <h1>Chili Lime Chips</h1>
+                <p>Chili Lime Chips are crunchy, rolled corn tortilla chips coated with a zesty chili and lime seasoning!</p>
+                        
+                <div class="product-container">
+                    <img class="product-img" src="imgs/chips.jpg" alt="Chili Lime Chips">
+                    <div class="details">
+                        <h3>Ingredients</h3>
+                        <table class="ingredients-table">
+                            <tr>
+                                <th>Ingredient</th>
+                                <th>Details</th>
+                            </tr>
+                            <tr>
+                                <td>Stone ground yellow corn</td>
+                                <td>The base of the chips</td>
+                            </tr>
+                            <tr>
+                                <td>Vegetable Oil</td>
+                                <td>High-oleic sunflower, safflower, or canola oil</td>
+                            </tr>
+                            <tr>
+                                <td>Paprika Extract</td>
+                                <td>A natural color additive</td>
+                            </tr>
+                            <tr>
+                                <td>Silicon Dioxide</td>
+                                <td>An anti-caking agent</td>
+                            </tr>
+                            <tr>
+                                <td>Hot Chili and Lime Seasoning</td>
+                                <td>Contains salt, yeast, cornstarch, cane sugar, citric acid, yeast extract, corn maltodextrin, gum arabic, malic acid, lime juice concentrate, onion powder, and more</td>
+                            </tr>
+                        </table>
+                        
+                        <h3>Nutritional Info</h3>
+                        <p><strong>Calories:</strong> 150 per serving | <strong>Fat:</strong> Moderate | <strong>Gluten-Free:</strong> Yes</p>
+                        
+                        <button class="back-button" onclick="window.history.back()">⬅ Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>
